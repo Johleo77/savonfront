@@ -1,0 +1,59 @@
+/* Modifications pour le centrage interne */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrage horizontal général */
+}
+
+.card-body {
+  width: 100%; /* Prend toute la largeur disponible */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrage horizontal du contenu */
+  justify-content: center; /* Centrage vertical */
+  text-align: center; /* Centrage du texte par défaut */
+}
+
+/* Adaptation des éléments spécifiques */
+.card-header {
+  width: 100%;
+  text-align: center;
+}
+
+table {
+  margin: 0 auto; /* Centrage des tableaux */
+  width: auto !important;
+}
+
+ul {
+  padding-left: 0; /* Suppression de la marge gauche par défaut */
+  list-style-position: inside; /* Puces alignées avec le texte centré */
+}
+
+/* Ajustement des boutons */
+.boutons-gestion {
+  justify-content: center; /* Centrage des boutons */
+  width: 100%;
+}
+
+/* Conserver les autres styles existants */
+.card-title {
+  width: 100%;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Adaptation responsive */
+@media (max-width: 768px) {
+  .card-body {
+      padding: 15px;
+  }
+  
+  .card-text {
+      font-size: 0.9rem;
+  }
+}

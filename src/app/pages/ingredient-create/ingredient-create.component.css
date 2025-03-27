@@ -1,0 +1,73 @@
+.container {
+    max-width: 800px;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 2rem !important;
+  }
+  
+  form {
+    margin: 0 auto;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .form-control {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+  
+  .form-check {
+    margin-top: 1.5rem;
+    padding-left: 2.5em;
+  }
+  
+  .form-check-input {
+    margin-left: -1.5em;
+  }
+  
+  .btn-primary {
+    background-color: #6366f1;
+    border: none;
+    padding: 0.75rem 2rem;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #4f46e5;
+    transform: translateY(-1px);
+  }
+  
+  .btn-primary:disabled {
+    background-color: #a5b4fc;
+    cursor: not-allowed;
+  }
+  
+  /* Espacement personnalisé */
+  .col-md-6 {
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Espacement supplémentaire pour le dernier élément */
+  div[style="height: 20;"] {
+    height: 2rem !important;
+  }

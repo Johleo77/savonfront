@@ -1,0 +1,93 @@
+<!-- Affichage des cards des recettes -->
+<div class="container">
+    <h2 class="mb-4 display-5">Liste des Recettes</h2> <!-- Titre plus grand -->
+    <div class="row g-4">
+      <div *ngFor="let recette of recettes" class="col-12 col-md-6 col-lg-6 col-xl-4"> <!-- Modification des breakpoints -->
+        <div class="card h-100 shadow-lg"> <!-- Ombre plus prononcée -->
+          
+          <!-- Entête de la carte agrandie -->
+          <div class="card-header py-3 bg-light">
+            <h4 class="card-title mb-0 fw-bold text-primary">{{ recette.titre }}</h4> <!-- Taille de police augmentée -->
+          </div>
+  
+          <!-- Graphique radar plus grand -->
+          <div class="px-3 pt-3 "> <!-- Hauteur augmentée -->
+            <app-radar-chart
+              [title]="recette.titre"
+              [scores]="[
+                recette.resultats[2].score,
+                recette.resultats[3].score,
+                recette.resultats[4].score,
+                recette.resultats[5].score,
+                recette.resultats[6].score,
+                recette.resultats[7].score,
+                recette.resultats[8].score
+              ]">
+            </app-radar-chart>
+          </div>
+  
+          <!-- Corps de la carte élargi -->
+          <div class="card-body p-3"> <!-- Padding augmenté -->
+            <div class="card-text">
+              
+              <!-- Description plus visible -->
+              <div class="mb-3">
+                <p class="mb-2 h6">Description :</p> <!-- Taille de sous-titre augmentée -->
+                <p class="mb-2 lead">{{ recette.description }}</p> <!-- Police plus grande -->
+              </div>
+  
+              <!-- Caractéristiques améliorées -->
+              <div class="mb-3">
+                <p class="mb-2 h6">Caractéristiques :</p>
+                <table class="table table-borderless mb-0">
+                  <tr *ngFor="let i of [0,2,4,6]">
+                    <td class="p-2 fs-5"> <!-- Taille de police augmentée -->
+                      <span class="text-muted">{{ recette.resultats[i].caracteristique?.nom }} :</span>
+                      <span class="fw-bold ms-2">{{ recette.resultats[i].score.toFixed(1) }}</span>
+                    </td>
+                    <td class="p-2 fs-5">
+                      <span class="text-muted">{{ recette.resultats[i+1].caracteristique?.nom }} :</span>
+                      <span class="fw-bold ms-2">{{ recette.resultats[i+1].score.toFixed(1) }}</span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+  
+              <!-- Composition plus lisible -->
+              <div>
+                <p class="mb-2 h6">Composition :</p>
+                <div class="d-flex gap-4"> <!-- Espacement augmenté -->
+                  <div class="fs-5"> <!-- Taille de police augmentée -->
+                    <p class="mb-2">{{ recette.avecSoude ? 'Soude' : 'Potasse' }}</p>
+                    <p class="mb-2">{{ recette.qteAlcalin.toFixed(0) }}g</p>
+                    <p class="mb-2">{{ recette.apportEnEau.toFixed(0) }}g</p>
+                  </div>
+                  <div class="fs-5">
+                    <p class="mb-2 fst-italic">Corps gras :</p>
+                    <ul class="list-unstyled mb-2">
+                      <li *ngFor="let ligne of recette.ligneIngredients">
+                        {{ ligne.ingredient?.nom }} : {{ ligne.quantite }}g
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Pied de carte élargi -->
+          <div class="card-footer py-3 bg-light"> <!-- Padding vertical augmenté -->
+            <div class="d-flex gap-3 justify-content-end">
+              <button class="btn btn-primary px-4"> <!-- Boutons agrandis -->
+                <i class="bi bi-pen-fill me-2"></i>Modifier
+              </button>
+              <button class="btn btn-danger px-4">
+                <i class="bi bi-trash-fill me-2"></i>Supprimer
+              </button>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
